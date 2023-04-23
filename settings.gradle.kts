@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "github-packages-sample-for-gradle"
 include(":app")
 include(":lint:checks")
+include(":lint:library")
