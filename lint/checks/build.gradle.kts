@@ -1,44 +1,34 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("java-library")
+    id("kotlin")
+    id("com.android.lint")
+}
+apply(from = rootProject.file("gradle/publish.gradle.kts"))
+
+lint {
+    htmlReport = true
+    htmlOutput = file("lint-report.html")
+    textReport = true
+    absolutePaths = false
+    ignoreTestSources = true
 }
 
-android {
-    namespace = "com.example.lint.checks"
-    compileSdk = 33
-
-    defaultConfig {
-        minSdk = 31
-        targetSdk = 33
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-}
 
 dependencies {
+    val lintVersion = "30.3.1"
+    val kotlinVersion = "1.8.0"
+    // For a description of the below dependencies, see the main project README
+    compileOnly("com.android.tools.lint:lint-api:$lintVersion")
+    // You typically don't need this one:
+    compileOnly("com.android.tools.lint:lint-checks:$lintVersion")
+    compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
 
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation("com.android.tools.lint:lint:$lintVersion")
+    testImplementation("com.android.tools.lint:lint-tests:$lintVersion")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
