@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("net.kwmt27.plugin.lint") version "1.0.0"
+//    id("net.kwmt27.plugin.lint") version "1.0.0"
 }
 
 
