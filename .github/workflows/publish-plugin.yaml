@@ -1,0 +1,14 @@
+name: "Publish Plugin to GitHub Packages"
+on:
+  push:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Publish plugin
+        env:
+          GITHUB_ACTOR: kwmt
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew publishAllPublicationsToGitHubPackagesRepository
