@@ -11,7 +11,7 @@ project.afterEvaluate {
                     from(component)
                     groupId = "net.kwmt27"
                     artifactId = project.path.toArtifactId()
-                    version = "1.0.0"
+                    version = "1.0.1"
                 }
             }
         }

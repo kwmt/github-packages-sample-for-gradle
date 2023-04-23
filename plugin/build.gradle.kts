@@ -15,7 +15,7 @@ java {
     withJavadocJar()
 }
 
-val pluginVersion = "1.0.0"
+val pluginVersion = "1.0.1"
 val pluginGroupId = "net.kwmt27.plugin.lint"
 
 group = pluginGroupId
