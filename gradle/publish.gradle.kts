@@ -19,7 +19,7 @@ project.afterEvaluate {
         repositories {
             maven {
                 name = "GitHubPackages"
-                url = uri("https://github.com/kwmt/github-packages-sample-for-gradle")
+                url = uri("https://maven.pkg.github.com/kwmt/github-packages-sample-for-gradle")
                 credentials {
                     username = System.getenv("GITHUB_ACTOR")
                     password = System.getenv("GITHUB_TOKEN")
