@@ -1,7 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("net.kwmt27.plugin.lint") version "1.0.0"
 }
+
 
 android {
     namespace = "com.example.github_packages_sample_for_gradle"

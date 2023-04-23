@@ -3,6 +3,7 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        mavenLocal()
     }
 }
 dependencyResolutionManagement {
@@ -10,9 +11,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
     }
 }
 rootProject.name = "github-packages-sample-for-gradle"
 include(":app")
+include(":plugin")
 include(":lint:checks")
 include(":lint:library")
